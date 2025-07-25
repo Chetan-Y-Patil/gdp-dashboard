@@ -24,10 +24,19 @@ st.markdown("""
 - 🎨 CSS
 """)
 
+# Resume Download Button
+st.markdown("## 📄 Download My Resume")
+try:
+    with open("chetan_resume.pdf", "rb") as file:
+        st.download_button(
+            label="📥 Download Resume (PDF)",
+            data=file,
+            file_name="Chetan_Patil_Resume.pdf",
+            mime="application/pdf"
+        )
+except FileNotFoundError:
+    st.error("❌ Resume file not found! Please make sure `chetan_resume.pdf` is in the app folder.")
+
 # Footer
 st.markdown("---")
 st.markdown("📧 _Want to connect? Let’s build something amazing!_")
-
-# Optional: Add a download button for resume if you have a PDF
-# with open("chetan_resume.pdf", "rb") as file:
-#     st.download_button("📄 Download Resume (PDF)", file, "Chetan_Patil_Resume.pdf")
